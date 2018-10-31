@@ -712,27 +712,28 @@ Resources:
       Subnets:
         - !Ref WSO2APIMPublicSubnet2
         - !Ref WSO2APIMPublicSubnet1
-      LBCookieStickinessPolicy:
-        - PolicyName: LBStickyPolicy
+      AppCookieStickinessPolicy:
+        - PolicyName: AppCookieSticky
+          CookieName: JSESSIONID
       Listeners:
         - LoadBalancerPort: '9763'
           InstancePort: '9763'
           Protocol: HTTP
           InstanceProtocol: HTTP
           PolicyNames:
-            - LBStickyPolicy
+            - AppCookieSticky
         - LoadBalancerPort: '8280'
           InstancePort: '8280'
           Protocol: HTTP
           InstanceProtocol: HTTP
           PolicyNames:
-            - LBStickyPolicy
+            - AppCookieSticky
         - LoadBalancerPort: '443'
           InstancePort: '9443'
           Protocol: HTTPS
           InstanceProtocol: HTTPS
           PolicyNames:
-            - LBStickyPolicy
+            - AppCookieSticky
           SSLCertificateId: !Join
             - ''
             - - 'arn:aws:iam::'
@@ -745,7 +746,7 @@ Resources:
           Protocol: HTTPS
           InstanceProtocol: HTTPS
           PolicyNames:
-            - LBStickyPolicy
+            - AppCookieSticky
           SSLCertificateId: !Join
             - ''
             - - 'arn:aws:iam::'
@@ -758,7 +759,7 @@ Resources:
           Protocol: HTTPS
           InstanceProtocol: HTTPS
           PolicyNames:
-            - LBStickyPolicy
+            - AppCookieSticky
           SSLCertificateId: !Join
             - ''
             - - 'arn:aws:iam::'
@@ -866,11 +867,6 @@ Parameters:
   DBEngine:
     Type: String
     Default: MySQL_5.7
-    AllowedValues:
-      - MySQL_5.7
-      - MySQL_5.6
-      - Oracle
-      - MSSQL
   DBUsername:
     Type: String
     MinLength: 4
@@ -903,9 +899,9 @@ Mappings:
     eu-west-1:
       Ubuntu180464bit: ami-0ea3b70805378f796
     us-east-1:
-      Ubuntu180464bit: ami-053ac76b77200e86f
+      Ubuntu180464bit: ami-0237f6c17dba2a063
     us-east-2:
-      Ubuntu180464bit: ami-0d0b4ddcec498fbce
+      Ubuntu180464bit: ami-0726eec7b0ed46d24
     us-west-1:
       Ubuntu180464bit: ami-01c303b902735f14b
     us-west-2:
