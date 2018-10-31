@@ -784,6 +784,15 @@ Outputs:
           - DNSName
         - '/carbon'
     Description: APIM service carbon URL
+  APIMServerCarbonURL:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2APIMLoadBalancer
+          - DNSName
+        - '/services'
+    Description: Carbon Server carbon URL
   APIMServicePublisherURL:
     Value: !Join
       - ''
@@ -894,9 +903,9 @@ Mappings:
     eu-west-1:
       Ubuntu180464bit: ami-0ea3b70805378f796
     us-east-1:
-      Ubuntu180464bit: ami-0237f6c17dba2a063
+      Ubuntu180464bit: ami-053ac76b77200e86f
     us-east-2:
-      Ubuntu180464bit: ami-0726eec7b0ed46d24
+      Ubuntu180464bit: ami-0d0b4ddcec498fbce
     us-west-1:
       Ubuntu180464bit: ami-01c303b902735f14b
     us-west-2:
