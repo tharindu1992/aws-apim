@@ -776,34 +776,7 @@ Resources:
     DependsOn:
       - WSO2APIMLoadBalancerSecurityGroup
 Outputs:
-  APIMServiceCarbonURL:
-    Value: !Join
-      - ''
-      - - 'https://'
-        - !GetAtt
-          - WSO2APIMLoadBalancer
-          - DNSName
-        - '/carbon'
-    Description: APIM service carbon URL
-  APIMServerCarbonURL:
-    Value: !Join
-      - ''
-      - - 'https://'
-        - !GetAtt
-          - WSO2APIMLoadBalancer
-          - DNSName
-        - '/services'
-    Description: Carbon Server carbon URL
-  APIMServicePublisherURL:
-    Value: !Join
-      - ''
-      - - 'https://'
-        - !GetAtt
-          - WSO2APIMLoadBalancer
-          - DNSName
-        - '/publisher'
-    Description: APIM service publisher URL
-  APIMServiceStoreURL:
+  StoreURL:
     Value: !Join
       - ''
       - - 'https://'
@@ -812,7 +785,52 @@ Outputs:
           - DNSName
         - '/store'
     Description: APIM service store URL
-  APIMGatewayHTTPSEndpoint:
+  PublisherURL:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2APIMLoadBalancer
+          - DNSName
+        - '/publisher'
+    Description: APIM service publisher URL
+  AdminUrl:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2APIMLoadBalancer
+          - DNSName
+        - '/admin'
+    Description: APIM service carbon URL
+  MgtConsoleUrl:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2APIMLoadBalancer
+          - DNSName
+        - '/carbon'
+    Description: APIM service carbon URL
+  KeyManagerUrl:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2APIMLoadBalancer
+          - DNSName
+        - '/services'
+    Description: Carbon Server carbon URL
+  CarbonServerUrl:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WSO2APIMLoadBalancer
+          - DNSName
+        - '/services'
+    Description: Carbon Server carbon URL
+  GatewayHttpsUrl:
     Value: !Join
       - ''
       - - ''
@@ -821,7 +839,7 @@ Outputs:
           - DNSName
         - ':8243'
     Description: APIM HTTPS Gateway endpoint
-  APIMGatewayHTTPEndpoint:
+  GatewayHttpsUrl:
     Value: !Join
       - ''
       - - ''
