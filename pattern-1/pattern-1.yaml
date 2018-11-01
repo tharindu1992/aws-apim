@@ -776,7 +776,7 @@ Resources:
     DependsOn:
       - WSO2APIMLoadBalancerSecurityGroup
 Outputs:
-  StoreURL:
+  StoreUrl:
     Value: !Join
       - ''
       - - 'https://'
@@ -785,7 +785,7 @@ Outputs:
           - DNSName
         - '/store'
     Description: APIM service store URL
-  PublisherURL:
+  PublisherUrl:
     Value: !Join
       - ''
       - - 'https://'
